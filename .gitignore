@@ -3,6 +3,7 @@
 
 ### VisualStudioCode ###
 .vscode
+videos/
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json

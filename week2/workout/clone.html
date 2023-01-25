@@ -17,16 +17,54 @@
 
     let items = [];
 
-    const handleAdd = () => {};
+    const handleAdd = () => {
+      const name = document.querySelector(".add-input").value;
+      const workouts = [...items, { id: items.length + 1, name, count: 0 }];
+      document.querySelector(".add-input").value = "";
+      items = [...workouts];
+      init();
+    };
 
-    const handleDelete = (id) => {};
+    const handleDelete = (id) => {
+      const workouts = items.filter((item) => item.id != id);
+      /* 스프레드 연산자를 통해 얕은 복사가 되었다. */
+      items = [...workouts];
+      init();
+    };
 
-    const handleIncrement = (index) => {};
+    const handleIncrement = (index) => {
+      items[index].count += 1;
+      const cnt = document.querySelector(`.workout-count${index}`);
+      cnt.innerHTML = items[index].count;
+    };
 
-    const handleDecrement = (index) => {};
+    const handleDecrement = (index) => {
+      items[index].count = items[index].count <= 0 ? 0 : items[index].count - 1;
+      const cnt = document.querySelector(`.workout-count${index}`);
+      cnt.innerHTML = items[index].count;
+    };
 
     const init = () => {
       let lis = "";
+
+      for (let i = 0; i < items.length; i++) {
+        lis += ` <li class="workout">`;
+        lis += ` <span class="workout-name">${items[i].name}</span>`;
+        lis += ` <span class="workout-count${i}">${items[i].count}</span>`;
+        lis += ` <button class="workout-button workout-increase" onclick="handleIncrement('${i}')" >`;
+        lis += ` <i class="fas fa-plus-square"></i>`;
+        lis += ` </button>`;
+        lis += ` <button class="workout-button workout-decrease" onclick="handleDecrement('${i}')">`;
+        lis += ` <i class="fas fa-minus-square"></i>`;
+        lis += ` </button>`;
+        lis += ` <button class="workout-button workout-delete" onclick="handleDelete('${items[i].id}')">`;
+        lis += ` <i class="fas fa-trash"></i>`;
+        lis += ` </button>`;
+        lis += ` </li>`;
+      }
+      const ul = document.querySelector(".ul");
+      ul.innerHTML = lis;
+      todaycount.innerHTML = `${items.length}`;
     };
   </script>
   <!-- body -->

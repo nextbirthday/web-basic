@@ -12,6 +12,7 @@ Javascript
 - 자바스크립트는 브라우저가 있어야만 실행되었다.
 - 그런데 Nodejs의 탄생으로 브라우저가 없어도 실행이 가능하게 되었다.
 - 백엔드 영역으로 확장이 가능해졌다.
+- 자바스크립트에서는 함수도 객체취급을 받는다.
 
 Vue.js나 React.js를 하는데 Typescript가 필수는 아니다.
 HTML - CSS - Javascript - ECMAScript - Restful API - Cloud Service(Google firebase, AWS, etc...) - Nodejs - React.js

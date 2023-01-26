@@ -9,5 +9,5 @@ let items = [
   console.log(items[0].name);
   console.log(++items[0].count);
   
-  console.log(items[00]);
+  console.log(items[00]); 
   console.log(items[01]);

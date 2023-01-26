@@ -25,7 +25,7 @@ for (let item of items) {
 
 const student = {
   name: "이순신",
-  age: 45,
+  age: 45,    
   address: "대전",
 };
 

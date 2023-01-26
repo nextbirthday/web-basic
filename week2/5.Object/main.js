@@ -17,12 +17,9 @@ const studentB = {
   parent: studentA,
 };
 
-// console.log(studentA);
-// console.log(studentB);
-
 /* [] 이면 Array, {} 이면 Object */
 const students = [studentA, studentB];
 
 console.log(students[0]);
 console.log(students[1]);
-console.log(students[1]['parent']['name']);
+console.log(students[1]["parent"]["name"]);

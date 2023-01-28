@@ -12,7 +12,6 @@ result = colors.join("+");
 console.log(result);
 
 /* pop(): 배열의 마지막 요소 제거(리턴값으로 잘라낸 요소 반환) */
-
 result = colors.pop();
 console.log(result);
 

@@ -7,6 +7,12 @@ console.log(colors);
 /* 함수의 이름이 없다. 사용자 호출이 불가능하다. */
 colors.forEach((color, index, colors) => {
   console.log(color);
+  console.log(colors);
+});
+
+colors.forEach((color, index) => {
+  console.log(color);
+  console.log(index);
 });
 
 /* ES6에서 파라미터가 한 개이면 괄호 생략이 가능하다. */

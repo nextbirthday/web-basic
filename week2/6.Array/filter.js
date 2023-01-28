@@ -1,7 +1,5 @@
 /* filter */
 
-/*  */
-
 function Counter() {
   this.sum = 0;
   this.conut = 0;

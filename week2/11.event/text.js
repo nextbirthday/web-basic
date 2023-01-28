@@ -10,5 +10,6 @@
 /* 이벤트 연결 방법 */
 /* 1. event handler 이용
 - DOM요소.onclick = () => {} */
+
 /* 2. 내장 함수 이용 
 - DOM요소.addEventListener('이벤트명',() => {} )*/

@@ -1,0 +1,26 @@
+{
+  "name": "web-basic",
+  "description": "KH B3 [HTML, CSS, JavaScript]",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nextbirthday/web-basic.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nextbirthday/web-basic/issues"
+  },
+  "homepage": "https://github.com/nextbirthday/web-basic#readme",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "express": "^4.18.2",
+    "font-awesome": "^4.7.0",
+    "request": "^2.88.2"
+  }
+}

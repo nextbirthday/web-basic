@@ -1,0 +1,12 @@
+Client ID - nlaxBCvcBggfxMfFcx1q
+
+Client Secret - VRQy6_8MSS
+
+
+프로젝트이름 아래에서 npm init -y 명령어 실행시 package.json 파일이 생성된다. 
+
+이 파일에는 의존성 주입이 들어간다.
+
+devDependencies - 개발모드 의존성 주입 - 테스트서버까지 배포 괜찮음
+
+dependencies - 운영서버에는 포함되면 안된다.

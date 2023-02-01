@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>step222</title>
+    <link rel="stylesheet" href="./step2.css" />
+    <script
+      src="https://kit.fontawesome.com/c59bdf0cb0.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!-- Navbar start -->
+    <nav id="navbar">
+      <!-- LOGO -->
+      <div class="navbar-logo">
+        <i class="fab fa-diaspora"></i>
+        <a href="#">Skill Inventory</a>
+      </div>
+      <!-- 메뉴 아이템 -->
+      <div class="div-menu">
+        <ul class="navbar-menu">
+          <li class="navbar-menu-item active" data-link="#home">HOME</li>
+          <li class="navbar-menu-item" data-link="#me">ME</li>
+          <li class="navbar-menu-item" data-link="#skill">SKILL</li>
+          <li class="navbar-menu-item" data-link="#project">PROJECT</li>
+          <li class="navbar-menu-item" data-link="#contact">CONTACT</li>
+        </ul>
+      </div>
+      <!-- 버거 아이콘 -->
+      <div class="burger-toggle-btn"><i class="fas fa-bars"></i></div>
+      <script>
+        // navbar메뉴 클릭시 해당 섹션으로 이동하기
+        const navbarMenu = document.querySelector('.navbar-menu');
+        navbarMenu.addEventListener('click', (event) => {
+          /* <li class="navbar-menu-item" data-link="#me"> 나에 대해...</li>*/
+          console.log(event.target); /* 감지되는 이벤트 타겟 객체 출력 */
+          /* data-link="#me"*/
+          console.log(event.target.dataset.link); // #home or #about를 찍어줌
+          const target = event.target;
+          const link = target.dataset.link; /* #home, #me,... */
+          if (link == null) {
+            return;
+          }
+          scrollIntoView(link);
+        });
+        function scrollIntoView(selector) {
+          console.log(selector);
+          const scrollTo = document.querySelector(selector);
+          scrollTo.scrollIntoView({ behavior: 'smooth' });
+        }
+        const buggerIcon = document.querySelector('.burger-toggle-btn');
+        buggerIcon.addEventListener('click', (e) => {
+          console.log('버거아이콘');
+          navbarMenu.classList.toggle('open');
+        });
+      </script>
+    </nav>
+    <!-- Navbar end -->
+    <!-- Home start -->
+    <section id="home" class="section">
+      <!-- section id는 해쉬값과 동일해야 함 -->
+      <!-- 메뉴 클릭시 data link값으로 사용 -->
+      <div class="hcontent">HOME</div>
+    </section>
+    <!-- Home end -->
+
+    <!-- Me start -->
+    <section id="me" class="section">
+      <div class="mcontent">
+        <!-- <h1>PROFILE <br /></h1>h1은 블럭요소라서 한 줄을 다 써버린다. -->
+        PROFILE <br />
+      </div>
+    </section>
+    <!-- Me end -->
+
+    <!-- Skill start -->
+    <section id="skill" class="section">
+      <div class="scontent">
+        SKILLS <br />
+        <br />⁂LANGUAGE⁂<br />
+        Java Python Groovy Scala JavaScript C# HTML CSS<br /><br />⁂DB (DW
+        etc)⁂<br />
+        ORACLE MySQL PostgreSQL InfluxDB Redis AWS Redshift (+ S3) GCP
+        BigQuery<br /><br />⁂TOOL (IDE, ETL etc)⁂<br />
+        Eclipse Toad for ORACLE DBeaver SQL Workbench/J JetBrains IntelliJ IDEA
+        JetBrains DataGrip JetBrains PyCharm <br />Visual Studio Code GitHub
+        Apache NiFi Apache Kafka Zeppelin S3 Browser P3X Redis UI MobaXterm<br /><br />⁂VCS⁂<br />
+        Git<br />
+        <br />⁂FRAMEWORK⁂<br />
+        Spring Spring Boot Apache Spark<br />
+      </div>
+    </section>
+    <!-- Me end -->
+
+    <!-- Project start -->
+    <section id="project" class="section">
+      <div class="pcontent">PROJECT LIST</div>
+    </section>
+    <!-- Project end -->
+
+    <!-- Contact start -->
+    <section id="contact" class="section">
+      <div class="ccontent">
+        CONTACT<br />
+        <h2 class="contact-github">Github</h2>
+        <div class="contact-link-github">
+          <a href="https://github.com/nextbirthday/workout" target="_blank"
+            ><i class="fab fa-github"> (☞ﾟヮﾟ)☞ nextbirthday/workout</i></a
+          ><br />
+        </div>
+        <h2 class="contact-gmail">Gmail</h2>
+        <div class="contact-link-gmail">
+          <a href="https://www.google.com/gmail/about/" target="_blank"
+            ><i class="fab fa-google"> (☞ﾟヮﾟ)☞ dumarsyoon@gmail.com</i></a
+          ><br />
+        </div>
+        <p class="contact-rights">2023 윤호재 - All rights reserved</p>
+      </div>
+    </section>
+    <!-- Contact end -->
+    <button class="up"><i class="fas fa-arrow-up"></i></button>
+    <script>
+      /* 문서가 수직으로 얼마나 스크롤됐는지 픽셀 단위로 변환 */
+      const home = document.querySelector('.hcontent');
+      document.addEventListener('scroll', () => {});
+
+      /* 실제 home content의 높이 */
+      const homeHeight = home.getBoundingClientRect().height;
+      document.addEventListener('scroll', () => {
+        /* 만약 홈 높이가 600이면 스크롤링이 0에서 300까지 오면 0.5만큼 투명하게 되고 600이면 투명도가 0이 되고 
+        시작할 때는 투명하면 안되니까 1로 줌 */
+        // home.style.opacity = 1 - window.screenY / homeHeight;
+        home.style.opacity = 1 - window.screenY / homeHeight;
+      });
+
+      const upBtn = document.querySelector('.up');
+      document.addEventListener('scroll', () => {
+        /* 홈컨텐트의 절반보다 큰 값이면  */
+        if (window.scrollY > homeHeight / 2) {
+          /* 스타일추가 */
+          upBtn.classList.add('visible');
+        } else {
+          /* 스크롤리 위에 있는 경우 보여지면 안되니까 스타일에서 제거 */
+          upBtn.classList.remove('visible');
+        }
+      });
+      upBtn.addEventListener('click', () => {
+        scrollIntoView('#home');
+      });
+    </script>
+  </body>
+</html>

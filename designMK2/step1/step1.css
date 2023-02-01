@@ -1,0 +1,158 @@
+* {
+  box-sizing: border-box; /* 1: 패딩과 마진포함 사이즈 계산 */
+  /* border: 1px solid red; 옵션: 마진과 패딩의 공간, 영역, 블럭요소 */
+}
+
+body {
+  margin: 0; /* 2: 빈 공간 없이 왼쪽 상단 모서리에 붙이기 위함*/
+}
+
+a {
+  text-decoration: none; /*3: a태그 링크 밑줄 없앰*/
+}
+
+ul {
+  list-style: none; /* 4: 구슬 없앰 */
+  padding-left: 0; /* 5: 구슬 공간 없앰 */
+}
+
+#navbar {
+  position: fixed;
+  display: flex; /* 6: skill Inventory랑 ul을 좌우로 펼침 */
+  width: 100%; /* 7: 생략 - 반응형 웹, 버거 아이콘 - 폭이 100으로 안되어있으면 찌그러지거나 생각한대로 배치가 안 될 수도 있다.*/
+  height: 60px; /* 8: 높이 */
+  justify-content: space-between;
+  background-color: green;
+  color: white;
+}
+
+.navbar-logo {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.navbar-menu {
+  display: flex; /* ul안에 li 좌우로 펼침 */
+}
+
+/* 메뉴 아이템 추가 */
+.navbar-menu-item {
+  padding: 8px 12px;
+  margin: 0 4px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* Home 버튼 강조 */
+.navbar-menu-item active {
+  border: 1px solid white;
+}
+
+.navbar-menu-item:hover {
+  background-color: violet;
+  transform: scale(1.1);
+}
+/* 버거 아이콘 추가 */
+.burger-toggle-btn {
+  position: absolute;
+  right: 32px;
+  font-size: 24px;
+  display: none;
+}
+
+.section {
+  text-align: center;
+  margin: auto;
+}
+
+.hcontent {
+  background-color: gray;
+  background-image: url('../../images/sample/camping-night2.jpg');
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 500px;
+}
+
+.mcontent {
+  background-color: greenyellow;
+  width: 100%;
+  height: 500px;
+}
+
+.scontent {
+  font-size: 20px;
+  background-color: pink;
+  width: 100%;
+  height: 500px;
+}
+
+.pcontent {
+  background-color: coral;
+  width: 100%;
+  height: 500px;
+}
+
+.ccontent {
+  background-color: wheat;
+  width: 100%;
+  height: 500px;
+}
+
+.contact-github {
+  color: white;
+}
+
+.contact-github:hover {
+  transform: scale(1.2);
+  color: violet;
+  transition: all 100ms ease-in;
+}
+
+.contact-link-github:hover {
+  transform: scale(1.2);
+  color: violet;
+}
+
+.contact-gmail {
+  color: white;
+}
+
+.contact-gmail:hover {
+  transform: scale(1.2);
+  color: violet;
+  transition: all 100ms ease-in;
+}
+
+.contact-link-gmail:hover {
+  transform: scale(1.2);
+  color: violet;
+}
+
+.contact-rights {
+  font-size: 20px;
+  color: white;
+}
+
+/* 반응형 웹 추가 768px보다 작아지면 반응*/
+@media screen and (max-width: 768px) {
+  .burger-toggle-btn {
+    display: block; /* 1: 버거아이콘 보임 */
+  }
+
+  #navbar {
+    /* 메뉴바의 내용이 아래로 출력 */
+    flex-direction: column; /* 3: 메뉴바 내용 아래로 */
+    /* 메뉴가 앞쪽으로 배치 */
+    align-items: flex-start; /* 4 */
+  }
+
+  .div-menu {
+    width: 100%; /* 2: 메뉴 아이템이 전체를 채움 */
+  }
+
+  .navbar-menu {
+    flex-direction: column; /* 5 메뉴가 아래방향*/
+    display: block; /* 6 */
+    text-align: center; /* 7  글씨 가운데 정렬*/
+  }
+}

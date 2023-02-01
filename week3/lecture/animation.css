@@ -1,0 +1,25 @@
+.box {
+  width: 200px;
+  height: 200px;
+  margin: 20px;
+  background-color: cyan;
+}
+
+.box1:hover {
+  background-color: crimson;
+  transition-duration: 1s;
+  transition-timing-function: linear ease-in;
+}
+/* linear easy-in, easy-in-out */
+.box2:hover {
+  border-radius: 50%;
+  background-color: darksalmon;
+  transition: all 500ms ease;
+}
+
+.box3:hover {
+  border-radius: 25%;
+  background-color: midnightblue;
+  transform: translateX(300%);
+  transition: 2s ease-in-out;
+}

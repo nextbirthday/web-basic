@@ -1,0 +1,140 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+   border: 0.5px solid red;
+}
+
+ul {
+  list-style: none;
+}
+
+body {
+  background-color: bisque;
+}
+/* section tag로 전체를 감쌈 */
+.wrap {
+  width: 340px;
+  padding: 30px; /* 내부여백 크기 */
+  background-color: white;
+  position: absolute; /* 좌표값에 따른 배치 */
+  top: 50%; /* y축 중앙배치 */
+  left: 50%; /* x축 중앙배치 */
+  transform: translate(-50%, -50%); /* 요소의 중앙 위치를 잡음 */
+}
+
+.wrap .menu a {
+  font-size: 20px;
+  color: gray;
+}
+
+.wrap .menu::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.wrap .menu :nth-child(1) {
+  float: left;
+}
+
+.wrap .menu :nth-child(2) {
+  float: right;
+}
+
+.wrap .profile {
+  width: 100%;
+  text-align: center;
+}
+
+.wrap .profile img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.wrap .profile h1 {
+  font: bold 22px/1 'arial';
+  color: grey;
+  margin-bottom: 5px;
+}
+
+.wrap .profile p {
+  font: bold 12px/1 'arial';
+  color: grey;
+  margin-bottom: 5px;
+}
+
+/* a태그 CSS활용하여 버튼으로 바꿔보기 */
+
+.wrap .profile a {
+  display: block;
+  width: 180px;
+  height: 32px;
+  /* 시계방향 auoto는 양 옆 */
+  margin: 20px auto 20px;
+  font: 24px/30px 'arial';
+  border-radius: 35%;
+  text-decoration: none;
+  background-color: #47b7f7;
+  color: #222222;
+  text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.7);
+}
+
+.wrap .profile a:hover {
+  transform: scale(1.1);
+}
+
+/* 인라인 요소는 기본적으로 가운데 정렬이 되고 만일 block요소를 주면 기본적으로 왼쪽 정렬이 된다.
+이것을 가운데 오게 할 땐 margin에 auto를 준다. */
+
+.wrap .contact {
+  margin-bottom: 20px;
+}
+.wrap .contact li {
+  width: 100%;
+  padding: 10px 0px;
+  border-bottom: 1px solid grey;
+}
+
+.wrap .contact li i {
+  width: 20%;
+  text-align: center;
+  color: rgb(89, 90, 92);
+}
+
+.wrap .contact li span {
+  font: 12px/1 'orbitron';
+  color: rgb(89, 90, 92);
+  letter-spacing: 1px; /* 글자간 간격 */
+}
+
+.wrap .others {
+  text-align: center;
+  font-size: 0;
+}
+
+/* a(anchor)은 인라인요소 (크기가 없다.) */
+.wrap .others a {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-color: grey;
+  border-radius: 50%;
+  margin: 0px 10px;
+}
+
+.wrap .others a:nth-child(1) {
+  background-color: aqua;
+}
+.wrap .others a:nth-child(2) {
+  background-color: pink;
+}
+.wrap .others a:nth-child(3) {
+  background-color: coral;
+}
+.wrap .others a:nth-child(4) {
+  background-color: orange;
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>형변환</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      /* 형 변환 - 특정 조건이 만족되면 자료형이 강제로 변환된다. */
+      const n1 = '2';
+      const n2 = 2;
+      const n3 = 10;
+      const n4 = 20;
+      console.log(parseInt(n1) + n2); //4
+      document.write(parseInt(n1) + n2);
+      document.write('<br/>');
+      console.log(n1 + n2 + n3); //2210 숫 + 문 = 문
+      document.write(typeof (n1 + n2 + n3));
+      document.write('<br/>');
+      console.log(n2 + n3 + n4); //32 숫숫숫 =숫
+      document.write(n2 + n3 + n4);
+      document.write('<br/>');
+      document.write(typeof (n2 + n3 + n4));
+      document.write('<br/>');
+      console.log(n1 + n4); //220
+    </script>
+  </body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>arrow</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      function sum(a, b) {
+        console.log(a);
+        console.log(b);
+        console.log(a + b);
+      }
+
+      const sum2 = function (x, y) {
+        const result = x + y;
+        return result;
+      };
+
+      const sum3 = (x, y) => {
+        const result = x + y;
+        return result;
+      };
+
+      const sum4 = (x) => {
+        const result = x;
+        return result;
+      };
+
+      sum2(10, 20);
+      sum3(5, 8);
+      sum4(3000);
+
+      document.write(sum2(10, 20));
+      document.write('<br/>');
+      document.write(sum3(5, 8));
+      document.write('<br/>');
+      document.write(sum4(3000));
+      document.write('<br/>');
+
+      console.log(sum2(10, 20));
+      console.log(sum3(5, 8));
+      console.log(sum4(3000));
+    </script>
+  </body>
+</html>
+
+<!-- Arrow Function -->
+<!-- 기존의 익명함수를 더 쓰기 쉽게 축약한 형태이다. -->
+<!-- 내부로 전달되는 파라미터가 하나면 괄호는 생략 가능 -->
+<!-- 자바스크립트는 같은 이름의 함수를 중복 정의 불가능 (메서드 오버로딩이 없다.)-->
+<!-- 함수의 이름은 무조건 다르게 작성한다. -->

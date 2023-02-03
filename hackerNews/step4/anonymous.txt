@@ -1,0 +1,4 @@
+when it comes to anonymous function 
+
+익명함수의 대표적인 예가 이벤트 처리 
+

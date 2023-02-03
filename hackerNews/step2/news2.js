@@ -13,7 +13,7 @@ const requestOptions2 = {
 const NEWS_URL = 'https://api.hnpwa.com/v0/news/1.json';
 const CONTENT_URL = 'https://api.hnpwa.com/v0/item/@id.json';
 /* 제목을 클릭했을 때 보여줄 다중댓글을 출력하기 위한 div태그 생성하기*/
-const content = document.createElement('div');
+const content = document.createElement('div'); /* DOM API의 단점 - DOM구조가 직관적이지 않음 */
 
 window.addEventListener('hashchange', () => {
   const id = this.location.hash.substr(1);
@@ -21,10 +21,10 @@ window.addEventListener('hashchange', () => {
     .then((response) => response.json())
     .then((result) => {
       /* <div><h1></h1><div> */
-      const title = this.document.createElement('h1');
+      const title = this.document.createElement('h1'); /* DOM API<h1></h1> */
       title.innerHTML = result.title;
       /* 16번에 생성한 div태그에 넣기 */
-      content.appendChild(title);
+      content.appendChild(title); /* DOM API - 라우팅(화면 분리 - 한 화면에 모두 보임 - SPA[React] 기능 구현할 수 없음) */
     })
     .catch((error) => console.log('error', error));
 });

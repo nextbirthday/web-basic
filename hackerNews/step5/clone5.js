@@ -14,4 +14,14 @@ function getRequest(url) {
 
 const news = getRequest(NEWS);
 
+const ul = document.createElement('ul');
 
+for (let i = 0; i < news.length; i++) {
+  const li = document.createElement('li');
+
+  li.innerHTML = news[i].title;
+
+  ul.appendChild(li);
+}
+
+divcontent.appendChild(ul);

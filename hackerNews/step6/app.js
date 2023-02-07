@@ -16,11 +16,6 @@ function getData(url) {
 const news = getData(NEWS);
 const ul = document.createElement('ul');
 
-function getRequest(method, url, boolean) {
-  xhr.open(`${method}`, `${url}`, `${boolean}`);
-  xhr.send();
-}
-
 /* hash에대한 이벤트처리 추가 */
 /* hash값이 변경되면 호출되는 부분 */
 window.addEventListener('hashchange', () => {

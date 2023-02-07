@@ -1,0 +1,26 @@
+GOOGLE API KEY
+AIzaSyDE_7smZNSc-J4c7p44-gnbICMl5wKmI2g
+
+클라이언트 ID 
+OAuth ID 발급은 firebase console에서 -> Authentification -> sign-in-method -> 새업체 정보 추가
+-> 사용설정 버튼 활성화(오른쪽이동) -> 저장버튼 클릭 -> 자동 발급 - > 그 클라이언트 ID사용할 것
+-> API및 서비스 이동 -> 승인된 자바스크립트 원본에 (localhost:5501과 localhost / )
+-> 403번 에러 발생, Domain ~~
+
+318132438012-agnnviple6iheu70fq444483vg2g60n1.apps.googleusercontent.com
+
+클라이언트 PW
+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
+
+애플리케이션 홈페이지
+http://localhost:5501/google/index.html
+
+승인된 자바스크립트 원본
+http://localhost:5501
+http://localhost
+
+승인된 리디렉션 URI
+
+http://localhost:5501/google/googleLogin.html
+http://localhost:5501/google/firebaseJSTest1.html
+http://localhost:5501/google/modalLogin.html

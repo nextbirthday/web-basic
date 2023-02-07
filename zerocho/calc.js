@@ -71,6 +71,7 @@ document
 document
   .querySelector('#multiply')
   .addEventListener('click', onClickOperator('*'));
+
 document.querySelector('#calculate').addEventListener('click', () => {
   if (numTwo) {
     switch (operator) {

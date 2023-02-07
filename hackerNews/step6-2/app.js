@@ -47,6 +47,9 @@ function newsDetail() {
   `;
 }
 
+
+
+
 //라우터에서 화면 전환하기
 function router() {
   //글 목록의 링크는 #.그러면 location.href에 #이 들어왔을 텐데
@@ -60,6 +63,10 @@ function router() {
     newsDetail();
   }
 } //end of router
+
+
+
+
 
 window.addEventListener('hashchange', router);
 router();

@@ -1,5 +1,6 @@
 /* 비동기통신객체 생성해서 담을 변수 선언 */
 let xhrObject = null;
+
 /* 비동기 통신객체 생성하는 함수 구현 - 단 리턴 예약어가 없어서 반환받을 수 없음 */
 function createRequest() {
   try {
@@ -12,7 +13,6 @@ function createRequest() {
       xhrObject = null;
     }
   }
-
   if (xhrObject == null) {
     alert('비동기 통신 객체 생성 에러');
   }

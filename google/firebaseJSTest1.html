@@ -17,18 +17,104 @@
 
       const $btnGoogle = document.querySelector('#btnGoogle');
       $btnGoogle.addEventListener('click', (event) => {
-        /* button태그 사용시에 디폴트 타입이  submit이어서 폼 전송이 일어나게 되며 
+        /* button태그 사용시에 디폴트 타입이 submit이어서 폼 전송이 일어나게 되며 
         이럴 경우 해당 페이지가 refresh가 발생함에 따라 이상동작이 발생하므로 반드시 button태그로 click이벤트 처러시에는 주의할 것 */
-       
-        // event.preventDafault(); /* submit 방지용으로 추가할것 */
 
-        // console.log(e.target+e.currentTarget);
+        // event.preventDafault(); /* submit 방지용으로 추가할것 */
 
         authLogic.login('Google').then((snapshot) => {
           console.log(snapshot);
+          // 구글 서버에서 응답으로 받은 정보를 문자열로 변환함
+          const temp = JSON.stringify(snapshot);
+          // 위에서 변환된 정보를 배열로 변환 
+          const jsonDoc = JSON.parse(temp);
+          console.log(jsonDoc.user);
+          console.log('jsonDoc.user.uid ===> ' + jsonDoc.user.uid); /* uid - 구글에서 할당되는 아이디값 - 이게 바뀌면 다른 사람임 */
+          console.log('sonDoc.user.displayName ===> ' + jsonDoc.user.displayName); /* displayName - 구글 계정 이름 */
+          console.log('jsonDoc.user.email ===> ' + jsonDoc.user.email); /* 구글 계정 이메일 */
         });
+      }); // end of btnGoogle
+
+      const moveMain = (displayName) => {
+        console.log('moveMain ===> ' + displayName);
+        window.location.href = './index.html?displayName='+displayName;
+      };
+
+      /* 구글 서버에서 상태값의 변화를 체크하고 자동으로 호출해줌 (개발자가 호출하는 함수가 아니다.)*/
+      /* 파라미터 user가 바뀌면 자동으로 호출된다. */
+      authLogic.onAuthChange((user)=>{
+        // console.log('onAuthChange ===> ' + user.displayName);
+        /* 아래 구문 분석필수 - 리액트에서 빈번 */
+        user && moveMain(user.displayName);
+       // user.displayName && document.write('<a href="javascript:signOut();">로그아웃</a>');
       });
+
+      function signOut() {
+        console.log('로그아웃');
+        /* import문 사용시 주의 할 것은 반드시 type=module을 추가할 것 */
+        /* text/javascript와 module 사이에는 호환이 안됨 */
+        /* 해결방법은 직접 함수 호출이 안되고 태그의 아이디를 사용하여 addEventListener로 함수처리할 것 */
+        authLogic.logout();
+      }
+
     </script>
     <button id="btnGoogle">구글로그인</button>
   </body>
 </html>
+
+<!-- http://localhost:5501/google/firebaseJSTest1.html -->
+
+<!-- user
+: 
+Ae
+accessToken
+: 
+"eyJhbGciOiJSUzI1NiIsImtpZCI6IjVhNTA5ZjAxOWY3MGQ3NzlkODBmMTUyZDFhNWQzMzgxMWFiN2NlZjciLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoi7Jyk7JqU7JuQIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FFZEZUcDdjWEhBOUNFOUNNSmsxU0RqTWNNeWxoTXE5YVFzSElTRzZpUU55THc9czk2LWMiLCJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20va2gtamF2YS1iMyIsImF1ZCI6ImtoLWphdmEtYjMiLCJhdXRoX3RpbWUiOjE2NzU4MTQ1NTIsInVzZXJfaWQiOiJEaU9XYVZxSUg1UVoyTjVxbk1CamxlWnBYWDUzIiwic3ViIjoiRGlPV2FWcUlINVFaMk41cW5NQmpsZVpwWFg1MyIsImlhdCI6MTY3NTgxNDU1MiwiZXhwIjoxNjc1ODE4MTUyLCJlbWFpbCI6ImR1bWFyc3lvb25AZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZ29vZ2xlLmNvbSI6WyIxMTY3OTg2NTUwOTc2NTI1OTk1NDciXSwiZW1haWwiOlsiZHVtYXJzeW9vbkBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJnb29nbGUuY29tIn19.RtKBZmyEl5LAWVOcUzoh6dXPlJBHqlAhKgXzM3JUxtcRfooti_w7D2t4kqDFT28j5O4V82jxFg1Vjzf5nq1AaTQRk4fCu_iDAOS-rHmGGx2u3BumflXbKZh7zhaaOQ6dcaX-gmMUZsxIMJi9fm_wHEra04eb_5MtT1yT8Q290cq3QljtOfqZo9dUd45EGHNSzVJsxZUonuh0o-sBeuy9s3ljM02OLi_2R88SqryTYsDGaEDa6qUgOdVYl3QVYrs4wpMEPPjtDr2JKvYIPAYgLkDFjvMuy7X3dLKjqBfnmnFPza8L_6O2Z6GDn7znp96SROaFnpJVNCnGQG0imvYN3g"
+auth
+: 
+We {app: FirebaseAppImpl, heartbeatServiceProvider: Provider, config: {…}, currentUser: Ae, emulatorConfig: null, …}
+displayName
+: 
+"윤요원"
+email
+: 
+"dumarsyoon@gmail.com"
+emailVerified
+: 
+true
+isAnonymous
+: 
+false
+metadata
+: 
+Te {createdAt: '1675740210682', lastLoginAt: '1675814552875', lastSignInTime: 'Wed, 08 Feb 2023 00:02:32 GMT', creationTime: 'Tue, 07 Feb 2023 03:23:30 GMT'}
+phoneNumber
+: 
+null
+photoURL
+: 
+"https://lh3.googleusercontent.com/a/AEdFTp7cXHA9CE9CMJk1SDjMcMylhMq9aQsHISG6iQNyLw=s96-c"
+proactiveRefresh
+: 
+ye {user: Ae, isRunning: false, timerId: null, errorBackoff: 30000}
+providerData
+: 
+[{…}]
+providerId
+: 
+"firebase"
+reloadListener
+: 
+null
+reloadUserInfo
+: 
+{localId: 'DiOWaVqIH5QZ2N5qnMBjleZpXX53', email: 'dumarsyoon@gmail.com', displayName: '윤요원', photoUrl: 'https://lh3.googleusercontent.com/a/AEdFTp7cXHA9CE9CMJk1SDjMcMylhMq9aQsHISG6iQNyLw=s96-c', emailVerified: true, …}
+stsTokenManager
+: 
+ke {refreshToken: 'APJWN8fShZ2beNjzPMK_GXx34CV2_7uIQV2QnaPogNrme9NVAZ…zxlTo6yfp4fmKRetoAoBE9caeHAvZVs-gaLr85-TOsb2R0nKA', accessToken: 'eyJhbGciOiJSUzI1NiIsImtpZCI6IjVhNTA5ZjAxOWY3MGQ3Nz…BfnmnFPza8L_6O2Z6GDn7znp96SROaFnpJVNCnGQG0imvYN3g', expirationTime: 1675818153141}
+tenantId
+: 
+null
+uid
+: 
+"DiOWaVqIH5QZ2N5qnMBjleZpXX53" -->

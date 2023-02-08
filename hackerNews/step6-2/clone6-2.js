@@ -12,7 +12,43 @@ function getData(url) {
 
 function newsList() {
   const news = getData(NEWS);
+  //li태그를 담을 배열 선언하기
+  const getList = [];
+  //li태그를 담기전에 ul 태그를 먼저담기
+  getList.push('<ul>');
+
+  for (let i = 0; i < news.length; i++) {
+    const div = document.createElement('div');
+    getList.push(
+      `<li>
+        <a href='#${news[i].id}'>
+          ${news[i].title}(${news[i].comments_count})
+        </a>
+      </li>
+      `
+    );
+  } // end of for
+  getList.push('</ul>'); /* getList 배열에 ul태그 닫아주기 */
+  /* 빈문자열을 주면 구분자 없는 하나의 합쳐진 HTML문자열을 얻는다. */
+  container.innerHTML = getList.join('');
 }
+
+//뉴스 상세내용 보기
+
+function newsDetail() {
+  const id = window.location.hash.substring(1);
+
+  const newsContent = getData(CONTENT.replace('@id',id));
+  container.innerHTML = `
+  <h1>${newsContent.title}</h1>
+  <div>
+    <a href='#'>목록으로</a>
+  </div>
+  `;
+}
+
+
+
 
 function router() {
   const routePath = location.hash;
@@ -21,5 +57,9 @@ function router() {
   if (routePath === '') {
     newsList();
   } else {
+    newsDetail();
   }
 }
+
+window.addEventListener('hashchange', router);
+router();

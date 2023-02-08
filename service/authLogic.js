@@ -4,12 +4,15 @@ import {
   GithubAuthProvider,
   GoogleAuthProvider,
 } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js';
+
 class AuthLogic {
+  
   constructor() {
     this.firebaseAuth = getAuth();
     this.googleProvider = new GoogleAuthProvider();
     this.githubProvider = new GithubAuthProvider();
   }
+
   login(providerName) {
     //console.log('providerName : ' + providerName);
     const authProvider = this.getProvider(providerName);

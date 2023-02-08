@@ -5,7 +5,7 @@ HTML
 - 단방향 서비스 (if문, for문 지원이 안된다.) - 정적페이지 <-> 동적페이지 (JSP, Servlet, spring)
 
 Javascript
-- 변수(let, const - 배열, 함수, 객체) -컴파일안함-타입체크-CationgException-에러잡기)
+- 변수(let, const - 배열, 함수, 객체) -컴파일안함-타입체크-CationgException-에러잡기
 - 제어문, 객체, 배열, 함수(자바스크립트에서는 함수도 객체이다.)
 - Arrow Function, 구조분해할당, 일급함수, 일급객체
 - 정적페이지에 Dynamic한 영향을 줄 수 있는것이 자바스크립트이다.
@@ -18,3 +18,5 @@ Vue.js나 React.js를 하는데 Typescript가 필수는 아니다.
 HTML - CSS - Javascript - ECMAScript - Restful API - Cloud Service(Google firebase, AWS, etc...) - Nodejs - React.js
 
 Final Project - NAVER, KAKAO, KakaoPay, NAVER PAY
+
+

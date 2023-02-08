@@ -11,6 +11,7 @@ function getData(url) {
   xhr.send();
   return JSON.parse(xhr.responseText);
 }
+
 //뉴스 목록 가져오기
 function newsList() {
   const news = getData(NEWS);
@@ -34,6 +35,7 @@ function newsList() {
   /* 빈문자열 주면 구분자 없는 하나의 합쳐진 HTML문자열을 얻음 */
   container.innerHTML = getList.join('');
 }
+
 //뉴스 상세 내용 보기
 function newsDetail() {
   const id = window.location.hash.substring(1);

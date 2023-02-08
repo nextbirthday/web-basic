@@ -18,7 +18,7 @@
         xhrObject = createRequest2(); //비동기통신객체를 리턴값으로 받기
         console.log(xhrObject);
         const url = './boardSellAction.html'; /* 집계된 보드 판매량 수치 */
-        xhrObject.open('GET', url, true); //true:async, false : sync-이럴거면 ajax필요없음
+        xhrObject.open('GET', url, true); //true:async, false: sync-이럴거면 ajax필요없음
         xhrObject.onreadystatechange = soldProcess;
         xhrObject.send();
       }
@@ -73,8 +73,8 @@
         <td width="180px"><span id="boardSold">10</span></td>
       </tr>
       <!-- 
-	소비자가-구매가=보드 한개당 마진 금액
-	한개당 마진 금액*판매량=마진금액계산
+	  (소비자가-구매가)=보드 한개당 마진 금액
+	  한개당 마진 금액*판매량=마진금액계산
 	 -->
       <tr>
         <th>구매가</th>

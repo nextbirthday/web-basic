@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <title>구글 로그인-[모듈화사용:type="module"]</title>
+  </head>
+  <body>
+    <script type="module">
+      import { firebaseApp } from '../service/firebase.js';
+      import AuthLogic from '../service/authLogic.js';
+      const authLogic = new AuthLogic();
+
+      $(document).ready(function () {
+
+        $('#btnGoogle').bind('click',  (event) => {
+            authLogic.login('Google').then((snapshot) => {
+          console.log(snapshot);
+          // 구글 서버에서 응답으로 받은 정보를 문자열로 변환함
+          const temp = JSON.stringify(snapshot);
+          // 위에서 변환된 정보를 배열로 변환
+          const jsonDoc = JSON.parse(temp);
+          console.log(jsonDoc.user);
+          console.log('jsonDoc.user.uid ===> ' + jsonDoc.user.uid); /* uid - 구글에서 할당되는 아이디값 - 이게 바뀌면 다른 사람임 */
+          console.log('sonDoc.user.displayName ===> ' + jsonDoc.user.displayName); /* displayName - 구글 계정 이름 */
+          console.log('jsonDoc.user.email ===> ' + jsonDoc.user.email); /* 구글 계정 이메일 */
+
+        });
+      });
+
+      const moveMain = (displayName) => {
+        console.log('moveMain ===> ' + displayName);
+        window.location.href = './index.html?displayName='+displayName;
+      };
+
+      /* 구글 서버에서 상태값의 변화를 체크하고 자동으로 호출해줌 (개발자가 호출하는 함수가 아니다.)*/
+      /* 파라미터 user가 바뀌면 자동으로 호출된다. */
+      authLogic.onAuthChange((user)=>{
+        // console.log('onAuthChange ===> ' + user.displayName);
+        /* 아래 구문 분석필수 - 리액트에서 빈번 */
+        user && moveMain(user.displayName);
+       // user.displayName && document.write('<a href="javascript:signOut();">로그아웃</a>');
+      });
+
+      function signOut() {
+        console.log('로그아웃');
+        /* import문 사용시 주의 할 것은 반드시 type=module을 추가할 것 */
+        /* text/javascript와 module 사이에는 호환이 안됨 */
+        /* 해결방법은 직접 함수 호출이 안되고 태그의 아이디를 사용하여 addEventListener로 함수처리할 것 */
+        authLogic.logout();
+      }
+    </script>
+    <button id="btnGoogle">구글로그인</button>
+  </body>
+</html>

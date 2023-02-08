@@ -12,14 +12,17 @@ h1{}
     #title{} 
     */
 
+
 /* window 웹혁명 2.0 효율적인 퍼포먼스
     브라우저 -> *브라우저 API*해석 -> 브라우저는 *인터프리터* 역할
     출력 -> body태그 안에
-    document.write("<h1></h1>")*/
+    document.write("<h1></h1>")
+*/
 
 /* JSP문법
     통신 - 프로토콜 - HTTP, HTTPS
-    out.print("<h1></h1>") */
+    out.print("<h1></h1>") 
+*/
 
 /* 그 동안은 main메서드로 요청을 하다가 URL로 요청
      HTTP의 특징 중 하나는 stateless(비상태)*/

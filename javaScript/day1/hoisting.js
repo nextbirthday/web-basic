@@ -7,6 +7,29 @@ console.log(text);
 : 블럭 안에서 선언된 지역변수가 코드 블럭 밖으로 끌어 올려지면서 강제로 전역변수화 되는 현상
 */
 
+console.log(num);
+
+num = 10;
+var num;
+console.log(num);
+
+const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
+
+const divContent = document.createElement('div');
+const ul = document.createElement('ul');
+
+for (var num = 0; num < array.length; num++) {
+  const li = document.createElement('li');
+
+  li.innerHTML = `<h3>${array[num]}</h3>`;
+
+  ul.appendChild(li);
+}
+
+divContent.appendChild(ul);
+
+document.write(divContent);
+
 const btns = document.querySelectorAll('ul li');
 
 /* 즉시실행 함수 */

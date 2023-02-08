@@ -32,7 +32,7 @@
       const temp2 = [result[0], result[1], result[2], ...result];
       document.write(result[0] + result[1] + result[2] + temp);
       document.write('<br/>');
-/* 배역의 구조분해 할당( [ ] ) - 리액트 필수 문법 - 모듈화 처리 */
+      /* 배역의 구조분해 할당( [ ] ) - 리액트 필수 문법 - 모듈화 처리 */
       const [r1, r2, r3] = result;
       document.write('<hr>');
       document.write(r1, ', ', r2, ', ', r3);
@@ -49,9 +49,9 @@
         address: '서울특별시 마포구 아현동',
       };
 
-      const { name, age, address } = student;
+      const { name, age, address, gender} = student;
       document.write('<hr>');
-      document.write(`${name} ${age}${address}`);
+      document.write(`${name} ${age}${address}${gender}`);
     </script>
   </body>
 </html>

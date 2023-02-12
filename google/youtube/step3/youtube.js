@@ -62,7 +62,6 @@ const handleSearch = () => {
 
 const search = (query) => {
   console.log('사용자가 입력한 bts 받음:' + query);
-
   
   const SEARCH_URL = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${query}&key=${key}`;
   const searched = getRequest(SEARCH_URL);
@@ -72,7 +71,7 @@ const search = (query) => {
 
   searchList.push(`<ul class="videos">`);
 
-  for (let i = 0; i < items.length; i++) {
+  for (let i = 0; i < searchItem.length; i++) {
     searchList.push(`<li class="container">`);
     searchList.push(`<div class="video">`);
     searchList.push(

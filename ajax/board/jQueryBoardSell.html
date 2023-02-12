@@ -44,10 +44,10 @@
   </head>
   <body>
     <script>
-      $(document).ready(function () {
+      $(document).ready( () => {
         const $btnMargin2 = $('#btnMargin');
 
-        $btnMargin2.bind('click', function () {
+        $btnMargin2.bind('click', (event) => {
           event.preventDefault(); /* submit으로 인한 전송처리로 페이지가 새로고침 방지 */
           getBoardSold();
         });
